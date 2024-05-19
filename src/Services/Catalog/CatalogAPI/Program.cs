@@ -7,6 +7,10 @@ builder.Services.AddMediatR(config =>
 config.RegisterServicesFromAssemblies(typeof(Program).Assembly);
 });
 
+builder.Services.AddMarten(option =>
+{
+    option.Connection(builder.Configuration.GetConnectionString("CatalogDB")!);
+}).UseLightweightSessions();
 
 var app = builder.Build();
 
