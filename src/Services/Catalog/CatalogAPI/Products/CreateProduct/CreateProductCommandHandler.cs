@@ -1,4 +1,5 @@
-﻿namespace CatalogAPI.Products.CreateProduct;
+﻿
+namespace CatalogAPI.Products.CreateProduct;
 
 public record CreateProductCommand(string Name, List<string> Categories, string Description, 
     string ImageUrl, decimal Price) : ICommand<CreateProductResult>;
@@ -9,7 +10,7 @@ internal class CreateProductCommandHandler(IDocumentSession session) : ICommandH
 {
     public async Task<CreateProductResult> Handle(CreateProductCommand command, CancellationToken cancellationToken)
     {
- 
+
         // Business logic to create a product
         var product = new Product
         {
