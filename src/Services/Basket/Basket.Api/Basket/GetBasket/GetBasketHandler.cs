@@ -3,7 +3,7 @@ namespace Basket.Api.Basket.GetBasket;
 
 public record GetBasketQuery(string UserName) : IQuery<GetBasketResutl>;
 
-public record GetBasketResutl(ShoppingCart cart);
+public record GetBasketResutl(ShoppingCart Cart);
 
 
 public class GetBasketQueryHandler(IBasketRepository repository) : IQueryHandler<GetBasketQuery, GetBasketResutl>
