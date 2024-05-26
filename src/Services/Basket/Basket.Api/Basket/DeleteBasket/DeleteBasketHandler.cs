@@ -3,19 +3,13 @@ public record DeleteBasketCommand(string UserName) : ICommand<DeleteBasketResult
 
 public record DeleteBasketResult(bool IsSuccess);
 
-public class DeleteBasketCommandHandler : ICommandHandler<DeleteBasketCommand, DeleteBasketResult>
+public class DeleteBasketCommandHandler(IBasketRepository repository) : ICommandHandler<DeleteBasketCommand, DeleteBasketResult>
 {
-    //private readonly IBasketRepository _basketRepository;
-
-    //public DeleteBasketCommandHandler(IBasketRepository basketRepository)
-    //{
-    //    _basketRepository = basketRepository;
-    //}
 
     public async Task<DeleteBasketResult> Handle(DeleteBasketCommand command, CancellationToken cancellationToken)
     {
-        //var basket = await _basketRepository.DeleteBasketAsync(command.UserName);
-        //return new DeleteBasketResult(basket);
+       await repository.DeleteBasketAsync(command.UserName, cancellationToken);
+
         return new DeleteBasketResult(true);
     }
 }

@@ -7,3 +7,4 @@ global using BuildingBlocks.Behaviour;
 global using BuildingBlocks.CQRS;
 global using FluentValidation;
 global using BuildingBlocks.Exceptions;
+global using Basket.Api.Data;
