@@ -1,7 +1,7 @@
 ﻿
 namespace CatalogAPI.Products.UpdateProduct;
 
-public class UpdateProductCommandValidator : AbstractValidator<UpdateProductRequest>
+public class UpdateProductCommandValidator : AbstractValidator<UpdateProductCommand>
 {
     public UpdateProductCommandValidator()
     {
