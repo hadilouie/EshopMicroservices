@@ -8,6 +8,14 @@ public static class DependencyInjection
     {
         //Add services to the container.
         var connectionString = configuration.GetConnectionString("Database");
+
+        services.AddDbContext<ApplicationDbContext>(options =>
+        {
+            options.UseSqlServer(connectionString);
+        });
+
+        //services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
+
         return services;
     }
 }
